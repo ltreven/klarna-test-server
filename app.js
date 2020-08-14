@@ -37,6 +37,8 @@ app.use(
 
 const index = require('./routes/index');
 app.use('/', index);
+const order = require('./routes/order');
+app.use('/api/order', order);
 
 app.use((req, res, next) => {
   // If no routes match, send them the React HTML.
