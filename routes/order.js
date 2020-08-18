@@ -10,7 +10,7 @@ router.post('/', (req, res, next) => {
   var endpoint = `https://api.playground.klarna.com/instantshopping/v1/authorizations/${req.body.authorization_token}/orders`;
   var username = 'usePK27126_8a4253efbe80r';
   var password = 'A6Xt0DcLnyysBoM8';
-  var credentials = btoa(username + ':' + password);
+  var credentials = Buffer.from(username + ':' + password).toString('base64');
   var basicAuth = 'Basic ' + credentials;
   var body = {
     purchase_country: req.body.purchase_country,
